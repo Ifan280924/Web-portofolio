@@ -1,0 +1,796 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Navigation Styles */
+/* Header dan Navigasi */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #D2042D;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #D2042D;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a.active {
+    color: #D2042D;
+}
+
+/* Menyesuaikan padding untuk konten utama */
+main {
+    padding-top: 80px;
+}
+
+/* Media Queries untuk Responsivitas */
+@media screen and (max-width: 768px) {
+    /* Header & Navigation */
+    nav {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 5px 0;
+    }
+
+    /* Main Content Padding */
+    main {
+        padding-top: 120px;
+    }
+
+    /* About Section */
+    .about {
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin: 0 auto 30px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-content .marketplace {
+        font-size: 1rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .education-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+
+    .education-item .school {
+        margin-left: 0;
+    }
+
+    /* Product Section */
+    .product-details {
+        padding: 30px 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-item img {
+        height: 250px;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 30px 20px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-form,
+    .contact-info {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-info {
+        padding: 15px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
+
+/* Media Queries untuk Tablet */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    nav {
+        padding: 15px 30px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        padding: 40px 30px;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .contact-container {
+        gap: 30px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('img/Bawang home.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-text {
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #D2042D;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
+
+/* Product Details Section */
+.product-details {
+    background-color: #f9f5f0;
+    padding: 50px 5%;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-item h3 {
+    margin-top: 15px;
+    color: #8B0000;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #ffffff;
+    padding: 50px 5%;
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.contact-form {
+    flex: 2;
+}
+
+.contact-form h2 {
+    color: #8B0000;
+    margin-bottom: 15px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #D2042D;
+}
+
+.contact-info {
+    flex: 1;
+    background-color: #8B0000;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.contact-details a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #FFB6C1;
+}
+
+.contact-info h3 {
+    color: white;  /* Mengubah warna judul menjadi putih */
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Modal Styles */
+/* Animasi untuk modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.modal.fade-in {
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #8B0000;
+    cursor: pointer;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    color: #8B0000;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-description {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    color: #8B0000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modal-image {
+        max-height: 300px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #8B0000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .hero-content, 
+    .about-content,
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image, 
+    .profile-image {
+        margin-top: 30px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}.about {
+    background-color: #8B0000;
+    color: white;
+    padding: 50px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 8px solid #f4f4f4;
+    margin-right: 50px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.about-content .marketplace {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #f4f4f4;
+}
+
+.about-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #f4f4f4;
+}
+
+.education-item {
+    margin-bottom: 15px;
+}
+
+.education-item .year {
+    color: #f4f4f4;
+    font-weight: bold;
+}
+
+.education-item .school {
+    color: #f4f4f4;
+    margin-left: 10px;
+}
+
+.experience {
+    margin-top: 30px;
+}
+
+.experience p {
+    color: #f4f4f4;
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin: 0 auto 30px;
+    }
+
+    .about-content {
+        width: 100%;
+    }
+}Animasi untuk navigasi saat scroll */
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Modal Styles */
+/* Animasi untuk modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.modal.fade-in {
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #8B0000;
+    cursor: pointer;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-title {
+    color: #8B0000;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.modal-description {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.modal-price {
+    color: #8B0000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modal-image {
+        max-height: 300px;
+    }
+}
+/* Style untuk ikon kontak */
+.contact-details a i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.contact-details a:hover i {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Hapus warna spesifik untuk setiap ikon karena sekarang semuanya putih */
+.contact-details a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-details a:hover {
+    opacity: 0.8;
+}
+
+.fa-envelope { color: #EA4335; }
+.fa-whatsapp { color: #25D366; }
+.fa-tiktok { color: #000000; }
+.fa-instagram { color: #E4405F; }
+
+/* Hover effect untuk ikon */
+.contact-details a:hover .fa-envelope { color: #FF6B6B; }
+.contact-details a:hover .fa-whatsapp { color: #34eb49; }
+.contact-details a:hover .fa-tiktok { color: #333333; }
+.contact-details a:hover .fa-instagram { color: #FF527B; }
+
+

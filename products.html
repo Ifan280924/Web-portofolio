@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Yandies Fresh Onion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="Yandies Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="products.html" class="active">PRODUK DETAIL</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products" class="product-details">
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="img/Bawang Lokal.jpg" alt="Bawang Lokal">
+                    <h3>Bawang lokal</h3>
+                </div>
+                <div class="product-item">
+                    <img src="img/Bawang Merah Goreng.jpeg" alt="Bawang Goreng">
+                    <h3>Bawang goreng</h3>
+                </div>
+                <div class="product-item">
+                    <img src="img/Bawang Premium.jpeg" alt="Bawang Premium">
+                    <h3>Bawang Premium</h3>
+                </div>
+                <div class="product-item">
+                    <img src="img/Bawang Kupas.jpeg" alt="Bawang Kupas">
+                    <h3>Bawang Kupas</h3>
+                </div>
+                <div class="product-item">
+                    <img src="img/Bawang Jumbo.jpeg" alt="Bawang Jumbo">
+                    <h3>Bawang Jumbo</h3>
+                </div>
+                <div class="product-item">
+                    <img src="img/onion powder.jpeg" alt="Bubuk Bawang">
+                    <h3>Bubuk Bawang</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yandies Fresh Onion. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Tambahkan modal di akhir body sebelum closing tag -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img class="modal-image" id="modalImage" src="" alt="Product Image">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+        </div>
+    </div>
+
+    <script>
+    // Data produk
+    const products = {
+        'Bawang lokal': {
+            description: 'Bawang merah lokal berkualitas tinggi, dipanen langsung dari petani lokal. Memiliki aroma yang kuat dan rasa yang khas, cocok untuk berbagai masakan Indonesia. Bawang ini dibudidayakan dengan metode tradisional yang ramah lingkungan.',
+            price: 'Rp 25.000/kg',
+            image: 'img/Bawang Lokal.jpg'
+        },
+        'Bawang goreng': {
+            description: 'Bawang goreng renyah dan gurih, diolah dengan standar kualitas tinggi. Digoreng dengan minyak pilihan dan dikemas dalam botol kedap udara untuk menjaga kerenyahan. Siap pakai untuk taburan berbagai hidangan.',
+            price: 'Rp 35.000/100g',
+            image: 'img/Bawang Merah Goreng.jpeg'
+        },
+        'Bawang Premium': {
+            description: 'Bawang merah premium pilihan terbaik, ukuran besar dan seragam. Dipilih khusus dari hasil panen terbaik dengan standar ketat. Cocok untuk restoran dan penggunaan komersial yang membutuhkan kualitas premium.',
+            price: 'Rp 30.000/kg',
+            image: 'img/Bawang Premium.jpeg'
+        },
+        'Bawang Kupas': {
+            description: 'Bawang merah yang sudah dikupas dengan bersih dan higienis. Dikemas dalam kemasan vakum untuk menjaga kesegaran. Praktis dan siap digunakan, menghemat waktu dan tenaga dalam memasak.',
+            price: 'Rp 28.000/kg',
+            image: 'img/Bawang Kupas.jpeg'
+        },
+        'Bawang Jumbo': {
+            description: 'Bawang merah ukuran jumbo dengan diameter lebih besar dari biasanya. Sangat cocok untuk kebutuhan catering dan industri makanan. Memberikan hasil potongan yang lebih besar dan merata.',
+            price: 'Rp 32.000/kg',
+            image: 'img/Bawang Jumbo.jpeg'
+        },
+        'Bubuk Bawang': {
+            description: 'Bubuk bawang merah murni tanpa campuran, diproses dengan teknologi modern untuk menjaga kualitas rasa dan aroma. Sangat praktis untuk bumbu masakan, dengan daya simpan lebih lama.',
+            price: 'Rp 40.000/100g',
+            image: 'img/onion powder.jpeg'
+        }
+    };
+    
+    // Fungsi untuk menampilkan modal
+    function showModal(productName) {
+        const modal = document.getElementById('productModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalPrice = document.getElementById('modalPrice');
+        
+        const product = products[productName];
+        
+        if (product) {
+            modalImage.src = product.image;
+            modalTitle.textContent = productName;
+            modalDescription.textContent = product.description;
+            modalPrice.textContent = product.price;
+            modal.style.display = 'block';
+            
+            // Tambahkan class untuk animasi fade in
+            modal.classList.add('fade-in');
+        }
+    }
+    
+    // Menambahkan event listener ke setiap produk
+    document.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const productName = item.querySelector('h3').textContent;
+            showModal(productName);
+        });
+    });
+    
+    // Menutup modal
+    document.querySelector('.close-modal').addEventListener('click', () => {
+        const modal = document.getElementById('productModal');
+        modal.classList.remove('fade-in');
+        modal.style.display = 'none';
+    });
+    
+    // Menutup modal ketika mengklik di luar modal
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('productModal');
+        if (event.target === modal) {
+            modal.classList.remove('fade-in');
+            modal.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>
